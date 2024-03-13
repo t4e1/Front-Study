@@ -129,5 +129,72 @@
 
         <input type="submit" value="전송">&nbsp;<input type="reset" value="취소">
     </form>
+
+    <form action="#" enctype="multipart/form-data">
+        <h2>그 밖의 input 태그들</h2>
+        <h3>type="color"</h3>
+        <label>색상선택 : </label>
+        <input type="color" name="color">
+
+        <h3>type="file"</h3>
+        <label>파일선택 : </label>
+        <input type="file" name="uploadfile" multiple>
+
+        <h3>type="hidden"</h3>
+        <label>안보임 : </label>
+        <input type="hidden" name="hiddenvalue" value="1">
+
+        <h3>type="button", type="submit", type="reset"</h3>
+        <input type="button" value="버튼">
+        <input type="submit" value="전송">
+        <input type="reset" value="초기화">
+
+        <button type="button">버튼2</button>
+        <button type="submit">전송2</button>    <!-- 버튼의 default는 submit이다 -->
+        <button type="reset">초기화2</button>
+    </form> 
+
+    <!-- 
+        select 태그와 option 태그 
+        사용자가 내용을 입력하는 것이 아니고 여러 옵션 중에서 선택하게 하고 싶을 때 사용하는 
+        롭다운 목록이다. 
+     -->
+     <form action="#" method="get">
+        <h2>select태그와 option 태그</h2>
+        <h3>기본 select 태그와 option 태그</h3>
+        <label>국적 : </label>
+        <select name="nation">
+            <option value="ko">한국</option>
+            <option value="ch">중국</op드tion>
+            <option value="jp">일본</option>
+            <option value="etc" selected>기타</option>
+        </select>
+
+        <h3>select 태그의 속성</h3>
+        <p>size: listbox의 크기를 지정한다. <br>
+            multiple: 다중 선택이 가능하다. 
+        </p>
+        <select name="nation2" size="2" multiple>
+            <option value="ko">한국</option>
+            <option value="ch">중국</option>
+            <option value="jp" selected>일본</option>
+            <option value="etc">기타</option>
+        </select>
+        <button>제출</button>
+     </form>
+     
+     <!-- textarea 태그 -->
+     <h2>textarea 태그</h2>
+     <p>input type="text"와 비슷하지만 여러 줄을 입력할 수 있고 input 태그와 달리 <br>
+        세로나 가로로 크기 조절이 가능하다. 
+        (css 속성인 resize로 크기 조절을 고정할 수도 있고 범위를 벗어나면 스크롤 바가 생다다.)
+        (javascript를 통해 textarea에 있는 값을 다룰 때는 innerHTML/innerTEXT가 아닌
+        value라는 개념으로 들어가 있는 값을 다루게 된다.)
+    </p>
+    <form action="">
+        <textarea name="textarea" cols="30" rows="10" style="resize: none;">abc</textarea>
+        <button type="submit">전송</button>&nbsp;<button type="reset">초기화</button>
+        <!-- <input type="text" value="abc"> -->
+    </form>
 </body>
 </html>
