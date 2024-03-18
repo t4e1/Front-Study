@@ -13,6 +13,6 @@ var obj = null;
 var val = obj?.value;       // NPE 방지 
 console.log(val);
 
-var str = '';
+var str = '';               // falsy 하지만 null이나 undefined는 아니다. 
 var len = str?.length;
 console.log(len);

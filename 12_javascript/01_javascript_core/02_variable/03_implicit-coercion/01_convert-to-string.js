@@ -15,7 +15,7 @@ console.log(Infinity + '');
 console.log(true + '');
 console.log(null + '');
 console.log(undefined + '');
-// console.log(Symbol() + '');
+// console.log(Symbol() + '');     TypeError: Cannot convert a Symbol value to a string 에러 발생
 console.log({} + '');
 console.log([1, 2] + '');
 console.log(function() {} + '');
