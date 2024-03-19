@@ -10,11 +10,15 @@ console.log(arrCopy);
 console.log(arr === arrCopy);
 
 /* 2. 객체 복사 */
-// 프로퍼티를 변경시킬 목적으로 프로퍼티명과 변수명을 일치시켜서 사용하면 
+// 프로퍼티를 변경시킬 목적으로 프로퍼티명과 변수명을 일치시켜서 프로퍼티를 변경시켜 복사할 수 있다. 
 let obj = {name: '홍길동', age: 20, addr: '서울시', hobby: ['축구', '농구']};
-let age = 30;
-let name = '강감찬'
-let ojbCopy = {...obj, age, name};     // 객체의 복사(나머지 연산자)
+
+let objCopy = {...obj};     // 객체의 완전 복사 
+
+/* 추가적으로 나머지 연산자 개념으로 활용도 가능하다. */
+// let age = 30;
+// let name = '강감찬'
+// let ojbCopy = {...obj, age, name};     // 객체의 복사(나머지 연산자)
 
 console.log(obj);
 console.log(ojbCopy);

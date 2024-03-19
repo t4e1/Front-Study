@@ -1,4 +1,4 @@
-/* 01. object-distructuring-assignment-basic-syntax(객체 구조분해 할당 기본 문법) */
+/* 01. object-destructuring-assignment-basic-syntax(객체 구조분해 할당 기본 문법) */
 
 let pants = {
     productName: '배기팬츠', 
