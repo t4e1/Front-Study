@@ -20,8 +20,14 @@ const arr4 = Array(10, 20, 30);
 console.log(arr4);
 console.log(arr4.length);
 
+/* 배열의 인덱스와 length 프로퍼티를 활용해 반복문을 돌릴 수 있다. */
 for(let i = 0; i < arr4.length; i++) {
     console.log(arr4[i]);
 }
 
+/*
+    자바스크립트에서 일반 객체와 배열의 큰 차이는 없고 다만 프로퍼티 키가 숫자형이라는 것과 
+    length라는 추가 프로퍼티를 가진다는 정도이다. 
+*/
 console.log(typeof arr4);
+
