@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function increase(number) {
+            const promise = new Promise((resolve, reject) => {
+
+                setTimeout(() => {
+
+                    const result = number + 10;
+
+                    if (result > 50) {
+                        const e = new Error("NumberTooBig");
+
+                        return reject(e);
+                    }
+
+                    return resolve(result);
+                }, 1000);
+            })
+
+            return promise;
+        }
+
+        console.log(increase(0));
+
+        // increase(0).then(number => console.log(number));    // promise 객체의 성공된 값이 나오면, then의 콜백 함수로 던져짐
+
+        /* 실제로는 중첩인데, then을 사용해서 같은 depth를 가진 것처럼 보이게 됨 */
+
+        increase(0)
+        .then(number => {
+            console.log(number)
+            
+            return increase(number); 
+        })
+        .then(number => {
+            console.log(number)
+
+            return increase(number);
+        } )
+        .then(number => {
+            console.log(number)
+
+            return increase(number);
+        } )
+        .then(number => {
+            console.log(number)
+
+            return increase(number);
+        } )
+        .then(number => {
+            console.log(number)
+
+            return increase(number);
+        } )
+        .then(number => {
+            console.log(number)
+
+            return increase(number);
+        } )
+        .then(number => {
+            console.log(number)
+
+            return increase(number);
+        } )
+        
+        
+    </script>
+</body>
+
+</html>

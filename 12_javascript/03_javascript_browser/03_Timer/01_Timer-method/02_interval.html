@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>02. interval</h1>
+
+    <!-- 지정한 기간마다 계속 콜백함수를 실행 -->
+    <h3>setInterval</h3>    
+    
+    <script>
+        let count = 0;
+
+        /* 첫번째 콜백 던지고 두번째 초던지면 두번째 던진 초 만큼 콜백함수를 반복함 */
+        const timeId = setInterval(() => {
+            console.log(count++);   
+            if(count == 6) {            // 탈출 조건
+                clearInterval(timeId);  // setInterval을 변수에 담아 놨다가 clearInterval을 시키면 setInterval이 멈춤
+                console.log('interval timer 종료!');
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
