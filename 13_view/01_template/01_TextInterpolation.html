@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="step01">
+        <span>message: {{msg}}</span>
+        <hr>
+        <div v-text="msg"></div>        <!-- 이 태그에 내용물로서 innerText효과를 내서 msg재료로 활용하겠다. -->
+        <div v-text="'message: ' + msg">abc</div>   <!-- innerText기 때문에 abc는 지워지고 'message: ' + msg가 들어간다. -->
+        <div id="inJs">zzz</div>
+
+        <!-- 
+            {{}}은 html 스크립트를 일반 텍스트로 해석하며 실제 html을 출력하기 위해서는
+            v-html 옵션을 이용하여 html 구문임을 명시해야 한다. (사용할 재료(Model)가 tag면 v-html을 사용해야 한다는 말)
+        -->
+        <hr>
+        <h5>Raw Html</h5>
+        <p>Using text interpolation: {{ rawHtml }}</p>
+        <p>Using v-html directive: <span v-html="rawHtml"></span></p>
+    </div>
+
+    <script>
+        document.getElementById('inJs').innerHTML = 'message: ' + 'abc';
+
+        const {createApp} = Vue;
+
+        /* createApp으로 만든 viewmodel을 통해 template에서 사용할 재료를 반환 */
+        createApp({
+            setup() {
+                return {        // ref로 관리하고 있지 않기 때문에 변화가 생겨도 반응하지 않는다. (반응성이 없다)
+                    msg: "hello world1234",
+                    rawHtml: "<span style='color:red'>hello world</span>"   
+                }
+            }
+        }).mount('#step01');
+    </script>
+</body>
+</html>

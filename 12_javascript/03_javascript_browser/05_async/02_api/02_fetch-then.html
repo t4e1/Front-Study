@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button onclick="callAPI()">유저 조</button>
+    <script>
+        function callAPI() {
+            fetch('https://jsonplaceholder.typicode.com/users/')
+            // fetch('https://jsonplaceholder.typicode.com/users/'),{method:'POST"} 등으로 변경을 해줘야 POST를 보낼 수 있다. 
+            .then(response => {
+                return response.json();
+            })
+            .then(json => {            // json 값을 활용하는 코드는 이 아래에서만 가능하다. (밖에서도 다루려면 전역변수를 선언한 다음에 담아서 사용 )
+                console.log(json);
+            })
+        }
+
+        // callAPI();
+    </script>
+</body>
+</html>

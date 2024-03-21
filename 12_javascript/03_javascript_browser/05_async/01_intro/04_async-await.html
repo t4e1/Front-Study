@@ -9,6 +9,9 @@
     <script>
 
         /* promise를 더 쉽게 사용할 수 있게 async/await가 ES8(2017)에서 추가되었다. */
+        // promise 를 만드는 이유 -> 콜백 지옥을 피하기 위해서 
+        // 어떻게 콜백 지옥을 피할 수 있는지? -> promise 객체가 then 을 지원하기 때문
+
         function increase(number) {
             const promise = new Promise((resolve, reject) => {
 
@@ -29,6 +32,15 @@
             return promise;
         }
         
+        // promise 객체 앞에 await 를 붙여도 then 과 같은 효과를 낸다. 
+        // await를 쓰기 위해서는 await를 쓰는 함수를 async로 감싸서 사용해야 한다. 
+        // async 가 달리는 순간 함수 자체가 무조건 promise 객체를 반환한다. 
+        /*
+            await의 두 가지 기능
+            1. await가 달린 함수의 결과인 promise에 담긴 결과(promise 내부의 resolve에 담긴 성공 결과)를 반환한다.(then과 비슷)
+            2. await가 달린 비동기 처리들은 그들 간에는 동기식으로 동작하게 된다. 
+            (await를 기기 위해서 함수의 async를 달면 그 async 함수는 promise를 반환한다.)
+        */
         async function run() {
             let result = await increase(0);
             console.log(result);
@@ -42,9 +54,12 @@
             result = await increase(result);
             console.log(result);
             console.log('end');
+
+            return 1;
         }
 
-        run();
+        console.log('반환값' , run());
+        run().then(result => console.log(result));
     </script>
 </body>
 </html>
