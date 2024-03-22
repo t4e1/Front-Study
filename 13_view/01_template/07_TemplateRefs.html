@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <title>Document</title>
+</head>
+    <body>
+        <div id="step01">
+
+            <!-- v-bind는 단방향 / v-model 은 양방향 -->
+            <labe>name: </label><input type="text" ref="nameBox" v-model="name">
+            <!-- <labe>name: </label><input type="text" ref="nameBox" :value="name"> -->
+            <br>
+            <label>입력한 이름: {{name}}</label>
+        </div>
+
+        <script>
+            const{createApp, ref} = Vue;
+            createApp({
+                setup() {
+                    
+                    const name = ref('');
+                    return {
+                        name
+                    }
+                },
+                mounted() { //화면에 요소가 mount 된 다음에 자동으로 호출될 내용을 정의하는 함수 
+                    console.log(this.$refs.nameBox);
+                    this.$refs.nameBox.focus();
+                }
+            }).mount('#step01');
+
+        </script>
+    </body>
+</html>
