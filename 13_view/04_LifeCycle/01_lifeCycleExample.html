@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <title>Document</title>
     <style>
         .rootContainer {
             display: flex;
@@ -75,7 +75,9 @@
             }
         }
     </style>
+    <title>Document</title>
 </head>
+
 <body>
     <div id="step01">
         <div v-if="!loadingState">
@@ -89,16 +91,18 @@
                 <button ref="next" class="btn">next</button>
             </div>
 
-            <div class="appContainer">
+            <div class="appContaniner">
                 <template v-if="!viewingState">
-                    <Wine v-for="wine in pageWine" :key="wine.id" :like="likes" :wine="wine"/>
+                    <Wine v-for="wine in pageWine" :key="wine.id" :like="likes" :wine="wine" />
                 </template>
             </div>
-        </template>
-    </div>
 
+        </template>
+
+    </div>
     <script>
-        const {createApp, ref} = Vue;
+        const { createApp, ref } = Vue
+
         const Wine = {
             props: ['wine', 'like'],
             template: `
@@ -111,7 +115,7 @@
             `
             ,
             beforeUnmount() {
-                
+
             },
             unmounted() {
 
@@ -122,6 +126,7 @@
             setup() {
                 const loadingState = ref(false);
                 const isMounted = ref(false);
+
                 return {
                     loadingState,
                     isMounted
@@ -130,7 +135,7 @@
             beforeCreate() {
                 console.log('컴포넌트 인스턴스 생성 전');
             },
-            created(){
+            created() {
                 console.log('컴포넌트 생성 후 초기 데이터 설정');
             },
             beforeMount() {
@@ -143,19 +148,22 @@
 
                 /* 제목에 'neon 클래스명' 부여 */
                 /* mounted에서 반응형 속성을 건드리면 아래 update관련 라이프사이클 훅이 동작한다. */
-                // this.isMounted = true;
+                this.isMounted = true;
                 console.log('마운트 완료 및 애니메이션 on');
             },
             beforeUpdate() {
-                console.log('컴포넌트가 업데이트 되기 전에 반응형 변수의 상태 조작');
+                console.log('컴포넌트가 업데이트 되기 전');
             },
             updated() {
-                console.log('컴포넌트 랜더링이 완료');
+                console.log('컴포넌트 렌더링이 완료');
             },
+
             components: {
                 Wine
             }
+
         }).mount('#step01');
     </script>
 </body>
+
 </html>
